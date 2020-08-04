@@ -1,0 +1,70 @@
+// Oyunculara mixy.kits permini vermelisiniz. kitlerin adı Baslangic , Vip , Vip+ , Mvip , Mvip+ Olmalı butonlara basıldığı zaman 
+// /kit komutunu kullanır oyuncular hali hazırda kit çekebiliyorsa bu script düzgün şekilde çalışacaktır.
+// Destek için https://discord.gg/6DPYRSM
+
+scriptname = "KitsUI";
+scriptversion = "Surum 1.0";
+developer = "Mixy & xNightVishx";
+
+event onLoad(){
+    logger.log("---------------------------------------------------");
+    logger.log(str.format("Script Name: {0}", scriptname));
+    logger.log(str.format("Script Version: {0}", scriptversion ));
+    logger.log(str.format("Developer: {0}", developer));
+    logger.log("---------------------------------------------------");
+}
+command kits(){
+	permission = "mixy.kits";
+    execute(){
+        effectManager.sendUI(9524, 9524, player.id);
+        player.sudo("/enablecursor");
+    }
+}
+command kitskapat(){
+    permission = "mixy.kits";
+    execute(){
+        effectManager.clearUIbyID(9524, 9524, player.id);
+        player.sudo("/disablecursor");
+    }
+}
+event onEffectButtonClicked(player, key){
+    if(key == "Kapat"){
+        effectManager.clearUIbyID(9524, player.id);
+        player.sudo("/disablecursor");
+    }
+}
+event onEffectButtonClicked(player, key){
+    if(key == "Baslangic"){
+        player.sudo("/kit baslangic");
+        effectManager.clearUIbyID(9524, player.id);
+        player.sudo("/disablecursor");
+    }
+}
+event onEffectButtonClicked(player, key){
+    if(key == "Vip"){
+        player.sudo("/kit vip");
+        effectManager.clearUIbyID(9524, 9524, player.id);
+        player.sudo("/disablecursor");
+    }
+}
+event onEffectButtonClicked(player, key){
+    if(key == "Vip1"){
+        player.sudo("/kit vip+");
+        effectManager.clearUIbyID(9524, 9524, player.id);
+        player.sudo("/disablecursor");
+    }
+}
+event onEffectButtonClicked(player, key){
+    if(key == "Mvip"){
+        player.sudo("/kit mvip");
+        effectManager.clearUIbyID(9524, 9524, player.id);
+        player.sudo("/disablecursor");
+	}
+}
+event onEffectButtonClicked(player, key){
+    if(key == "Mvip1"){
+        player.sudo("/kit mvip+");
+        effectManager.clearUIbyID(9524, 9524, player.id);
+        player.sudo("/disablecursor");
+    }
+}
